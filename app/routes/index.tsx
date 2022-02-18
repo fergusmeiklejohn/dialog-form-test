@@ -3,6 +3,7 @@ import { ValidatedForm } from "remix-validated-form";
 
 import BaseDialog from "~/components/baseDialog";
 import FormTest from "~/components/formTest";
+import ReachDialog from "~/components/reachDialog";
 import RemixValidatedFormTest, {
   FormSubmitButton,
   FormTextInput,
@@ -12,6 +13,7 @@ import { EmailValidator } from "~/validators/loginValidator";
 export default function Index() {
   const [openFormDialog, setOpenFormDialog] = useState(false);
   const [openRVFormDialog, setOpenRVFormDialog] = useState(false);
+  const [openReachFormDialog, setOpenReachFormDialog] = useState(false);
   return (
     <>
       <div className="flex min-h-screen flex-col items-center space-y-10 p-20">
@@ -23,16 +25,23 @@ export default function Index() {
           <button
             type="button"
             onClick={() => setOpenFormDialog(true)}
-            className="mt-10 group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="mt-5 group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Open Form Dialog
           </button>
           <button
             type="button"
             onClick={() => setOpenRVFormDialog(true)}
-            className="mt-10 group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="mt-5 group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            Open Remix-Validated-Form Dialog
+            Open HeadlessUI-Remix-Validated-Form Dialog
+          </button>
+          <button
+            type="button"
+            onClick={() => setOpenRVFormDialog(true)}
+            className="mt-5 group relative flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Open Reach-Remix-Validated-Form Dialog
           </button>
         </div>
 
@@ -67,6 +76,9 @@ export default function Index() {
           <FormTest />
         </div>
       </BaseDialog>
+      <ReachDialog isOpen={openReachFormDialog}>
+        <RemixValidatedFormTest />
+      </ReachDialog>
     </>
   );
 }
