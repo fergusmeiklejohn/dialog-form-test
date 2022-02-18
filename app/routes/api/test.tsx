@@ -1,7 +1,7 @@
-import { ActionFunction, json, LoaderFunction, redirect } from "remix";
+import { ActionFunction, LoaderFunction, redirect } from "remix";
 
 export const action: ActionFunction = async ({ request }) => {
-  console.log("api/test.tsx: action");
+  console.log("called api/test.tsx: action");
 
   return new Promise((resolve) =>
     setTimeout(() => {
@@ -11,6 +11,6 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export const loader: LoaderFunction = async () => {
-  console.log("api/test.tsx: loader");
+  console.log("called api/test.tsx: loader");
   return redirect(`/`);
 };
